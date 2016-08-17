@@ -11,7 +11,7 @@ class Cube():
             self.ser = serial.Serial(device, 115200, timeout=1)
             time.sleep(4)
             self.ser.write([2])
-            response = self.ser.read(15).decode('ascii')
+            response = self.ser.read(17).decode('ascii')
             if verbose:
                 print(response)
             if response:
