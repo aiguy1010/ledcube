@@ -55,7 +55,7 @@ void loop() {
     }
   }
   else if (inc == 2){ // This is a poll to see if we are the LED cube...
-    Serial.write("cube_4x4x4_v0.1.0");
+    Serial.write("cube_4x4x4_v0.2.0");
   }
   
   // Display

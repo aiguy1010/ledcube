@@ -4,7 +4,7 @@ import random
 
 class RainCube(ledcube.Cube):
     def __init__(self, **kwargs):
-        super(RainCube, self).__init__(self, **kwargs)
+        super().__init__(**kwargs)
 
     def run(self, dt=0.5):
         i, j, k = (0,0,0)
@@ -42,6 +42,10 @@ class RainCube(ledcube.Cube):
         return True
 
 if __name__ == '__main__':
-    cube = RainCube()
+    import sys
+    portArg = None
+    if len(sys.argv) > 1:
+        portArg = sys.argv[1]
+    cube = RainCube(port=portArg)
     cube.run()
 

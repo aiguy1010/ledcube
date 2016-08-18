@@ -3,8 +3,13 @@ import serial
 import serial.tools.list_ports
 
 class Cube():
-    def __init__(self, verbose=False):
+    def __init__(self, port=None, verbose=False, **kwargs):
+        super().__init__(**kwargs)
         self.state = [False]*64
+        if port:
+            self.ser = serial.Serial(port, 115200, timeout=1)
+            return
+
         for device in [port.device for port in serial.tools.list_ports.comports()]:
             if verbose:
                 print(device)
